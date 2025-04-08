@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Sharma - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js"></script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        .workout-tracker {
+            height: 150px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .workout-tracker::-webkit-scrollbar {
+            width: 6px;
+        }
+        .workout-tracker::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .workout-tracker::-webkit-scrollbar-thumb {
+            background: #6366F1;
+            border-radius: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Header -->
+    <header id="header" class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-transform duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="#home" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Ayush.dev</a>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="https://linkedin.com/in/ayush-sharma0807" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://github.com/Infintyayus" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="mailto:ayushs0203@gmail.com" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+                        <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+                        <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                        <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a>
+                        <a href="#fitness" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Fitness</a>
+                        <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                    </nav>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="bi bi-moon-stars dark:bi-sun"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="bi bi-list text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden pb-4">
+                <nav class="flex flex-col space-y-3">
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">About</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">Skills</a>
+                    <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">Projects</a>
+                    <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">Experience</a>
+                    <a href="#fitness" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">Fitness</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-2">Contact</a>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="https://linkedin.com/in/ayush-sharma0807" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://github.com/Infintyayus" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="mailto:ayushs0203@gmail.com" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home/Landing Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 pb-12 bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-gray-900 dark:to-indigo-950">
+        <div class="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center animate-fadeIn">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">
+                    Hello, I'm <span class="text-indigo-600 dark:text-indigo-400">Ayush Sharma</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl font-medium mb-6 text-gray-600 dark:text-gray-300">Front-End Developer</h2>
+                <p class="text-md md:text-lg mb-8 text-gray-600 dark:text-gray-400 max-w-lg">
+                    I specialize in building scalable UI solutions using JavaScript, React, and modern web technologies for high-traffic applications. Let's create something amazing together!
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#contact" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-all">
+                        Contact Me
+                    </a>
+                    <a href="#projects" class="px-6 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 font-medium rounded-lg border border-indigo-600 dark:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="rounded-full overflow-hidden border-4 border-indigo-600 dark:border-indigo-400 h-56 w-56 md:h-80 md:w-80 relative">
+                    <img src="https://i.pravatar.cc/400?img=7" alt="Ayush Sharma" class="object-cover h-full w-full" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg">
+                            <i class="fas fa-user-graduate text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-800 dark:text-white">Education</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                        <span class="font-medium">BTech in Electronics and Communication</span>
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                        Acropolis Institute of Technology and Research (RGPV), Indore
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                        2018 - 2022
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Final Grade: 7.86 CGPA
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg">
+                            <i class="fas fa-medal text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-800 dark:text-white">Certifications</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 mt-2 mr-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">Professional Frontend Developer Certificate from Coursera By Meta</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg">
+                            <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-800 dark:text-white">Contact Info</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="text-gray-600 dark:text-gray-300 flex items-center">
+                            <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-400 mr-3"></i>
+                            (+91) 8827561831
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 flex items-center">
+                            <i class="fas fa-envelope text-indigo-600 dark:text-indigo-400 mr-3"></i>
+                            ayushs0203@gmail.com
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 flex items-center">
+                            <i class="fab fa-linkedin text-indigo-600 dark:text-indigo-400 mr-3"></i>
+                            <a href="https://linkedin.com/in/ayush-sharma0807" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400">linkedin.com/in/ayush-sharma0807</a>
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 flex items-center">
+                            <i class="fab fa-github text-indigo-600 dark:text-indigo-400 mr-3"></i>
+                            <a href="https://github.com/Infintyayus" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400">github.com/Infintyayus</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-html5 text-orange-500 mr-2"></i>HTML5
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-css3-alt text-blue-500 mr-2"></i>CSS3
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-js text-yellow-500 mr-2"></i>JavaScript
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-react text-blue-400 mr-2"></i>React
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-angular text-red-600 mr-2"></i>Angular
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-node-js text-green-600 mr-2"></i>Node.js
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-git-alt text-orange-600 mr-2"></i>Git
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fas fa-mobile-alt text-gray-600 dark:text-gray-300 mr-2"></i>Responsive Design
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fab fa-python text-blue-500 mr-2"></i>Typescript
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fas fa-server text-purple-600 mr-2"></i>Express
+                </span>
+                <span class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 shadow skill-badge border border-indigo-200 dark:border-indigo-800">
+                    <i class="fas fa-paint-brush text-pink-500 mr-2"></i>UX/UI
+                </span>
+            </div>
+            
+            <!-- Skill progress bars -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                <div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">Frontend Development</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-1" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">React & Angular</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-2" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">Responsive Design</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-3" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">Backend Development</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-4" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">Testing & Debugging</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-5" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700 dark:text-gray-300">UI/UX Design</span>
+                            <span class="text-indigo-600 dark:text-indigo-400 font-semibold">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div id="skill-6" class="progress-bar bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-700">
+                    <div class="h-48 bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                        <i class="fab fa-react text-5xl text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Gemini 2.0</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Developed a sophisticated web application using ReactJS, implementing state management with Context API and hooks for real-time data updates.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">ReactJS</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">Context API</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">CSS Modules</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-700">
+                    <div class="h-48 bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-5xl text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">E-commerce Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Designed and tested a complete e-commerce solution with user registration, product search, checkout processes, and automated regression testing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">Selenium</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">Postman</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">Java</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Fitness Tracker) -->
+                <div class="project-card overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-700">
+                    <div class="h-48 bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-5xl text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Fitness Tracker</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Built a responsive fitness tracking application that logs workouts, tracks calories burned, and provides visual progress reports.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">React</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">Chart.js</span>
+                            <span class="px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded">LocalStorage</span>
+                        </div>
+                        <a href="#fitness" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Experience</h2>
+            
+            <div class="relative border-l-2 border-indigo-600 dark:border-indigo-400 ml-6 pl-8 pb-8">
+                <!-- Experience 1 -->
+                <div class="mb-12">
+                    <div class="absolute -left-3 mt-1 w-6 h-6 rounded-full bg-indigo-600 dark:bg-indigo-400 z-10"></div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Frontend Developer</h3>
+                                <h4 class="text-indigo-600 dark:text-indigo-400">BOG Trading Pvt Ltd</h4>
+                            </div>
+                            <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 py-1 px-3 rounded-full text-sm">Feb 2024 - Current</span>
+                        </div>
+                        <ul class="space-y-2 ml-6 list-disc text-gray-600 dark:text-gray-300">
+                            <li>Automated test scripts using Java and Selenium, ensuring functionality and reliability, and conducted API testing with Postman.</li>
+                            <li>Built responsive web applications with React, HTML/CSS, and JavaScript, integrating SQL databases for efficient data management.</li>
+                            <li>Delivered end-to-end projects, including e-commerce platforms and dashboards and client requirements.</li>
+                            <li>Collaborated with clients and teams using Git for version control, ensuring high-quality deliverables and seamless performance.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div>
+                    <div class="absolute -left-3 mt-1 w-6 h-6 rounded-full bg-indigo-600 dark:bg-indigo-400 z-10"></div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Operation</h3>
+                                <h4 class="text-indigo-600 dark:text-indigo-400">Hindustan Petroleum Corporation Limited</h4>
+                            </div>
+                            <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 py-1 px-3 rounded-full text-sm">Nov 2023 - Apr 2024</span>
+                        </div>
+                        <ul class="space-y-2 ml-6 list-disc text-gray-600 dark:text-gray-300">
+                            <li>Developed and enhanced UI pages using Angular for web applications catering to ONGC plants and industrial operations.</li>
+                            <li>Collaborated with HPCL and ONGC teams to design, develop, and deploy user-friendly and efficient web solutions.</li>
+                            <li>Implemented responsive design ensuring cross-device compatibility and seamless user experience.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Tracker Section -->
+    <section id="fitness" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Fitness Tracker</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Workout Form -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-md lg:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Log Your Workout</h3>
+                    <form id="workoutForm">
+                        <div class="mb-4">
+                            <label for="workout-type" class="block text-gray-700 dark:text-gray-300 mb-2">Workout Type</label>
+                            <select id="workout-type" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white">
+                                <option value="running">Running</option>
+                                <option value="cycling">Cycling</option>
+                                <option value="swimming">Swimming</option>
+                                <option value="weightlifting">Weightlifting</option>
+                                <option value="yoga">Yoga</option>
+                                <option value="hiit">HIIT</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="workout-duration" class="block text-gray-700 dark:text-gray-300 mb-2">Duration (minutes)</label>
+                            <input type="number" id="workout-duration" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white" min="1">
+                        </div>
+                        <div class="mb-4">
+                            <label for="workout-intensity" class="block text-gray-700 dark:text-gray-300 mb-2">Intensity Level</label>
+                            <select id="workout-intensity" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white">
+                                <option value="low">Low</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="high">High</option>
+                                <option value="very-high">Very High</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="log-workout" class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all">
+                            Log Workout
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Workout Stats -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-md lg:col-span-2">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Your Stats</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-lg text-center">
+                            <p class="text-gray-500 dark:text-gray-300">Total Workouts</p>
+                            <p id="total-workouts" class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">0</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-lg text-center">
+                            <p class="text-gray-500 dark:text-gray-300">Total Minutes</p>
+                            <p id="total-minutes" class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">0</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-600 p-4 rounded-lg text-center">
+                            <p class="text-gray-500 dark:text-gray-300">Calories Burned</p>
+                            <p id="calories-burned" class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">0</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-3 text-gray-700 dark:text-gray-300">Recent Workouts</h4>
+                    <div id="workout-history" class="workout-tracker bg-white dark:bg-gray-600 rounded-lg p-4">
+                        <p class="text-gray-500 dark:text-gray-400 text-center">No workouts logged yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Contact Me</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Get in Touch</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Feel free to reach out if you're looking for a developer, have a question or just want to connect.
+                    </p>
+                    
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full p-3 rounded-lg bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-white" required></textarea>
+                        </div>
+                        <button type="submit" id="send-message" class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md flex flex-col justify-center">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Contact Information</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 dark:bg-indigo-900 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800 dark:text-white">Location</p>
+                                    <p class="text-gray-600 dark:text-gray-300">Indore, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 dark:bg-indigo-900 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-indigo-600 dark:text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800 dark:text-white">Email</p>
+                                    <p class="text-gray-600 dark:text-gray-300">ayushs0203@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 dark:bg-indigo-900 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800 dark:text-white">Phone</p>
+                                    <p class="text-gray-600 dark:text-gray-300">(+91) 8827561831</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Follow Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://linkedin.com/in/ayush-sharma0807" target="_blank" class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Infintyayus" target="_blank" class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-300 mb-4 md:mb-0">© 2024 Ayush Sharma. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check system preference or localStorage
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+        
+        // Header scroll effect
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('header');
+        
+        function handleScroll() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Skills progress animation
+        function animateSkillBars() {
+            const skillBars = [
+                { id: 'skill-1', width: '90%' },
+                { id: 'skill-2', width: '85%' },
+                { id: 'skill-3', width: '95%' },
+                { id: 'skill-4', width: '75%' },
+                { id: 'skill-5', width: '80%' },
+                { id: 'skill-6', width: '85%' }
+            ];
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        skillBars.forEach(skill => {
+                            const element = document.getElementById(skill.id);
+                            if (element) {
+                                setTimeout(() => {
+                                    element.style.width = skill.width;
+                                }, 200);
+                            }
+                        });
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        }
+        
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Simulate form submission
+                alert(`Thanks ${name}! Your message has been sent. I'll get back to you soon.`);
+                contactForm.reset();
+            });
+        }
+
+        // Fitness tracker functionality
+        const workoutForm = document.getElementById('workoutForm');
+        const workoutHistory = document.getElementById('workout-history');
+        const totalWorkoutsEl = document.getElementById('total-workouts');
+        const totalMinutesEl = document.getElementById('total-minutes');
+        const caloriesBurnedEl = document.getElementById('calories-burned');
+        
+        // Calorie burning estimates per minute for different workouts at different intensities
+        const caloriesBurnedPerMinute = {
+            running: { low: 8, moderate: 11, high: 14, 'very-high': 17 },
+            cycling: { low: 6, moderate: 8, high: 10, 'very-high': 12 },
+            swimming: { low: 7, moderate: 9, high: 12, 'very-high': 14 },
+            weightlifting: { low: 3, moderate: 5, high: 7, 'very-high': 9 },
+            yoga: { low: 2, moderate: 4, high: 5, 'very-high': 6 },
+            hiit: { low: 8, moderate: 12, high: 15, 'very-high': 18 }
+        };
+        
+        // Get workouts from localStorage or initialize empty array
+        let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+        
+        // Update stats and history display
+        function updateWorkoutDisplay() {
+            // Update total stats
+            const totalWorkouts = workouts.length;
+            const totalMinutes = workouts.reduce((total, workout) => total + workout.duration, 0);
+            const totalCalories = workouts.reduce((total, workout) => total + workout.caloriesBurned, 0);
+            
+            totalWorkoutsEl.textContent = totalWorkouts;
+            totalMinutesEl.textContent = totalMinutes;
+            caloriesBurnedEl.textContent = totalCalories;
+            
+            // Update workout history
+            if (workouts.length === 0) {
+                workoutHistory.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-center">No workouts logged yet.</p>';
+            } else {
+                workoutHistory.innerHTML = '';
+                // Sort workouts by date, most recent first
+                const sortedWorkouts = [...workouts].sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                sortedWorkouts.forEach(workout => {
+                    const workoutEl = document.createElement('div');
+                    workoutEl.className = 'mb-3 pb-3 border-b border-gray-200 dark:border-gray-700 last:border-none';
+                    workoutEl.innerHTML = `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-medium text-gray-700 dark:text-white capitalize">
+                                    ${workout.type} <span class="text-xs text-gray-500 dark:text-gray-400">(${workout.intensity})</span>
+                                </p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">${workout.duration} mins • ${workout.caloriesBurned} calories</p>
+                            </div>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">${new Date(workout.date).toLocaleDateString()}</span>
+                        </div>
+                    `;
+                    workoutHistory.appendChild(workoutEl);
+                });
+            }
+        }
+        
+        // Handle workout form submission
+        if (workoutForm) {
+            workoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const type = document.getElementById('workout-type').value;
+                const duration = parseInt(document.getElementById('workout-duration').value);
+                const intensity = document.getElementById('workout-intensity').value;
+                
+                if (isNaN(duration) || duration <= 0) {
+                    alert("Please enter a valid duration.");
+                    return;
+                }
+                
+                // Calculate calories burned based on workout type, intensity, and duration
+                const caloriesPerMinute = caloriesBurnedPerMinute[type][intensity];
+                const caloriesBurned = Math.round(caloriesPerMinute * duration);
+                
+                // Create new workout object
+                const workout = {
+                    type,
+                    duration,
+                    intensity,
+                    caloriesBurned,
+                    date: new Date().toISOString()
+                };
+                
+                // Add to workouts array and update localStorage
+                workouts.push(workout);
+                localStorage.setItem('workouts', JSON.stringify(workouts));
+                
+                // Update display
+                updateWorkoutDisplay();
+                
+                // Reset form
+                workoutForm.reset();
+                
+                // Show confirmation
+                alert(`Great job! You burned approximately ${caloriesBurned} calories in your ${type} workout.`);
+            });
+        }
+        
+        // Initialize display when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateSkillBars();
+            updateWorkoutDisplay();
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
